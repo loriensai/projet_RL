@@ -1,33 +1,38 @@
 from instaloader import Instaloader, Profile
 import random
 import os
-import uuid
 
-# Initialiser Instaloader
-L = Instaloader()
 
-profiles = ["les_animaux_droles", "incroyable_nourriture", "franceolympique", "yvesrocherfr"]
+def load_images(profiles=["les_animaux_droles", "incroyable_nourriture", "franceolympique", "yvesrocherfr"]):
+    """ Télécharger des images à partir d'une liste de profils Instagram.
 
-for profile in profiles : 
+    Args:
+        profiles (list, optional): liste des profils. Valeur par défaut ["les_animaux_droles", "incroyable_nourriture", "franceolympique", "yvesrocherfr"].
+    """
 
-    # Créer un répertoire pour stocker les images téléchargées
-    download_dir = f"{profile}_images"
-    os.makedirs(download_dir, exist_ok=True)
+    # Initialiser Instaloader
+    L = Instaloader()
 
-    # Récupérer le profil Instagram
-    profile = Profile.from_username(L.context, profile)
+    # Parcourir les profils
+    for profile in profiles:
 
-    # Récupérer les publications associées au profil
-    posts = profile.get_posts()
+        # Créer un répertoire pour stocker les images téléchargées
+        download_dir = f"{profile}_images"
+        os.makedirs(download_dir, exist_ok=True)
 
-    # Tirer aléatoirement 4 publications
-    random_posts = random.sample(list(posts), 10)
+        # Récupérer le profil Instagram
+        profile = Profile.from_username(L.context, profile)
 
-    # Télécharger les images
-    for post in random_posts:
-        try:
-            # Télécharger l'image avec le nom généré
-            L.download_post(post, download_dir)
-            print("Image téléchargée avec succès.")
-        except Exception as e:
-            print(f"Erreur lors du téléchargement de l'image : {e}")
+        # Récupérer les publications associées au profil
+        posts = profile.get_posts()
+
+        # Tirer aléatoirement 10 publications
+        random_posts = random.sample(list(posts), 10)
+
+        # Télécharger les images
+        for post in random_posts:
+            try:
+                L.download_post(post, download_dir)
+                print("Image téléchargée avec succès.")
+            except Exception as e:
+                print(f"Erreur lors du téléchargement de l'image : {e}")

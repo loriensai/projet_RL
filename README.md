@@ -1,4 +1,4 @@
-# Projet RL : Système de recommandation de posts Insta                 
+# Projet RL : Système de recommandation de posts Instagram             
 
 **Étudiants** : DAVID-QUILLOT Mathis, LE GROGNEC Lenaig et NOUZILLE Lorie
 
@@ -10,7 +10,7 @@ Ce projet consiste à **créer une application de recommandations de posts Insta
 
 L'archive est constituée de trois fichiers principaux à considérer lorsqu'on souhaite simplement utiliser l'application :
 *   *requirements.txt* : Permet d'installer les dépendances nécessaires au bon fonctionnement du programme.
-*   *__main__.py* : Définit les profils (et donc les thèmes) à considérer pour la recommandation et télécharge les images qui en sont issues. Il lance ensuite l'application, en particulier l'interface graphique.
+*   *_main_.py* : Définit les profils (et donc les thèmes) à considérer pour la recommandation et télécharge les images qui en sont issues. Il lance ensuite l'application, en particulier l'interface graphique.
 *   *test.py* : Permet de lancer un nombre *n* de fois l'algorithme du Thompson Sampling afin d'observer ce qui se passe à chaque itération de l'algorithme et de mettre en avant l'aspect lié à l'exploration/l'exploitation de cette méthode. 
 
 L'archive contient également d'autres fichiers utiles à l'implémentation globale de l'application et pour comprendre comment celle-ci a été réalisée :
